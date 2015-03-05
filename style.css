@@ -1,0 +1,300 @@
+@import url(css/normalize.css);
+/* HTML5 Boilerplate v5.0.0 | MIT License | http://h5bp.com/ */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+/*
+ * Hide visually and from screen readers:
+ * http://juicystudio.com/article/screen-readers-display-none.php
+ */
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+body {
+  font-family: "Roboto Condensed", Arial, sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.game-wrap {
+  width: 480px;
+  height: 480px;
+  margin: 0 auto;
+}
+
+.tile {
+  width: 60px;
+  height: 60px;
+  display: block;
+  border: 1px solid #ccc;
+  position: absolute;
+  cursor: pointer;
+  margin: -1px 0 0 -1px;
+  text-align: center;
+  line-height: 60px;
+  top: -62px;
+  background: #eee;
+}
+.tile:before, .tile:after {
+  content: '';
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -15px 0 0 -15px;
+  z-index: 0;
+}
+.tile:before {
+  -webkit-transition: -webkit-transform 0.5s, opacity 0.6s;
+  -moz-transition: -moz-transform 0.5s, opacity 0.6s;
+  transition: transform 0.5s, opacity 0.6s;
+}
+.tile:hover:before {
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  opacity: 0;
+}
+.tile-red:before, .tile-red:after {
+  background-color: #F44336;
+}
+.tile-pink:before, .tile-pink:after {
+  background-color: #E91E63;
+}
+.tile-purple:before, .tile-purple:after {
+  background-color: #9C27B0;
+}
+.tile-deeppurple:before, .tile-deeppurple:after {
+  background-color: #673AB7;
+}
+.tile-indigo:before, .tile-indigo:after {
+  background-color: #3F51B5;
+}
+.tile-blue:before, .tile-blue:after {
+  background-color: #2196F3;
+}
+.tile-lightblue:before, .tile-lightblue:after {
+  background-color: #03A9F4;
+}
+.tile-cyan:before, .tile-cyan:after {
+  background-color: #00BCD4;
+}
+.tile-teal:before, .tile-teal:after {
+  background-color: #009688;
+}
+.tile-green:before, .tile-green:after {
+  background-color: #4CAF50;
+}
+.tile-lightgreen:before, .tile-lightgreen:after {
+  background-color: #8BC34A;
+}
+.tile-lime:before, .tile-lime:after {
+  background-color: #CDDC39;
+}
+.tile-yellow:before, .tile-yellow:after {
+  background-color: #FFEB3B;
+}
+.tile-amber:before, .tile-amber:after {
+  background-color: #FFC107;
+}
+.tile-orange:before, .tile-orange:after {
+  background-color: #FF9800;
+}
+.tile-deeporange:before, .tile-deeporange:after {
+  background-color: #FF5722;
+}
+.tile-brown:before, .tile-brown:after {
+  background-color: #795548;
+}
+.tile-grey:before, .tile-grey:after {
+  background-color: #9E9E9E;
+}
+.tile-bluegrey:before, .tile-bluegrey:after {
+  background-color: #607D8B;
+}
+.tile > span {
+  position: relative;
+  z-index: 20;
+}
+.tile.disabled {
+  opacity: 0.6;
+}
+.tile.selected {
+  border-color: #999;
+  z-index: 30;
+}
+
+#game {
+  position: relative;
+  margin: 0 auto;
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  /* No support for these yet, use at own risk */
+  -o-user-select: none;
+  user-select: none;
+}
+
+/*# sourceMappingURL=style.css.map */
