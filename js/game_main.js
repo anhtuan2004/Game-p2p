@@ -1,3 +1,5 @@
+;(function ( $, window, undefined ) {
+
 // function GameManager(size, InputManager, Actuator, StorageManager) {
 function GamePlayer(size) {
     this.size           = size; // Size of the grid
@@ -15,9 +17,17 @@ function GamePlayer(size) {
     this.startTriggerArray  = this.startTrigger.split(' ');
     this.moveTriggerArray   = this.moveTrigger.split(' ');
     this.stopTriggerArray   = this.stopTrigger.split(' ');
+    this.stopEvents         = [ this.stopTrigger, '' ].join(' ');
 
     this.el  = '#game';
     this.$el = $('#game');
+    this.$wrap = $('.game-wrap');
+    
+
+    this.$document  = $(this.$el[0].ownerDocument);
+    this.$body      = this.$document.find('body');
+
+    this.gameStore = [];
 
     // setup for start 
     this.setup();
@@ -75,7 +85,7 @@ GamePlayer.prototype.drawTile = function(tileArray){
         
     };
 
-    $('.game-wrap').width(this.size*60);
+     this.$wrap.width(this.size*60).height(this.size*60);
 }
 
 GamePlayer.prototype.subscribe = function () {
@@ -89,7 +99,7 @@ GamePlayer.prototype.subscribe = function () {
     this.onStartEventOnElementsWithInteraction = function(ev){ ev.stopPropagation(); };
     this.$el.on(
       this.startTrigger,
-      this.options.elementsWithInteraction,
+      'input',
       this.onStartEventOnElementsWithInteraction
     );
 
@@ -106,7 +116,7 @@ GamePlayer.prototype.unsubscribe = function() {
     this.$el.off(this.startTrigger, this.onStartEvent);
     this.$el.off(
       this.startTrigger,
-      this.options.elementsWithInteraction,
+      'input',
       this.onStartEventOnElementsWithInteraction
     );
     this.$document.off(this.stopEvents, this.onStopEvents);
@@ -115,15 +125,18 @@ GamePlayer.prototype.unsubscribe = function() {
 
 
 GamePlayer.prototype.handleStart = function(ev) {
-    $('.test-info').html('start');
+    $('.test-info').append('start ');
+    self.handleMove();
 };
 
 GamePlayer.prototype.handleMove = function() {
-    $('.test-info').append('move');
+   
+    $('.test-info').append('move ');
+
 };
 
 GamePlayer.prototype.handleStop = function(ev) {
-    $('.test-info').append('stop');
+    $('.test-info').append('stop ');
     
 }
 
@@ -133,3 +146,5 @@ $(document).ready(function() {
     // new GamePlayer(8, KeyboardInputManager, HTMLActuator, LocalStorageManager);
 	new GamePlayer(5);
 })
+
+}(jQuery, window));
